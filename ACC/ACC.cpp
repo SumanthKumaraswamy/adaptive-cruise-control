@@ -1,26 +1,9 @@
 #include <iostream>
-
-int adjustSpeed(int currentSpeed, char option, int acceleration, int decceleration) {
-    if (option == 'a') {
-        currentSpeed += acceleration;
-    }
-    else if (option == 'b') {
-        if (currentSpeed > 0) {
-            currentSpeed -= decceleration;
-        }
-        else
-        {
-            currentSpeed = 0;
-        }
-    }
-        return currentSpeed;
-}
+#include"ACC.h"
 
 int main()
 {
-    int speedKmph{ 0 };
-    int accelerationKmph{10};
-    int brake{2};
+    Vehicle vehicle;
     char option{};
  
     while (true) {
@@ -34,8 +17,13 @@ int main()
             std::cout << "Enter a valid command \n";
             continue;
         }
-        speedKmph = adjustSpeed(speedKmph, option, accelerationKmph, brake);
-        std::cout << "The current speed is " << speedKmph << " km/hr" << std::endl;
+        else if (option == 'a') {
+            vehicle.accelerate();
+        }
+        else if (option == 'b') {
+            vehicle.brake();
+        }
+        vehicle.displayStatus();
     }
 }
 
