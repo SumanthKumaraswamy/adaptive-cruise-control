@@ -4,7 +4,7 @@
 
 class Car : public Vehicle {
 public:
-    void accelerate() override;
+	void accelerate() override;
 
-    void brake() override;
+	void brake() override;
 };
